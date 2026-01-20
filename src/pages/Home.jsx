@@ -61,7 +61,7 @@ const Home = () => {
     {/* <Notification/> */}
         <Card>
             <div className="row text-center ">
-                <div className="col-sm-6 text-center mt-7">
+                <div className="col-sm-6 text-center mt-5">
                     <div className=''>
                         <h2 className='fw-bold animate-heading '>सप्रेम नमस्कार , </h2>
                         <p className='fw-semibold fs-5'>आपणास आग्रहाचे निमंत्रण !</p>
