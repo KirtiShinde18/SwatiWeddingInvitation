@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Lavishly+Yours&family=Tangerine:wght@400;700&display=swap');
+
+/* marathi fonts and Baloo 2 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+
+/*------------------------ Scroll Bar Start-----------------------*/
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(45deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, #da8ee7 75%);
+  /* background: linear-gradient(135deg, #FF7AF5 10%, #513162 100%); */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(25, 84, 212, 0.954);
+
+}
+
+/* scroll  */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*------------------------ Scroll Bar end-----------------------*/
+
+
+
+.overlay {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+h2 {
+  color: rgb(162, 67, 67);
+}
+
+p {
+  color: purple;
+  letter-spacing: 2px;
+}
+
+span {
+  color: rgb(78, 132, 78);
+  font-family: 'Baloo 2', cursive;
+  font-size: 40px;
+}
+
+h1 {
+  padding: 3px;
+  margin-top: -10px;
+  font-family: "Tangerine", cursive;
+  font-size: 25px;
+  word-spacing: 5px;
+  font-weight: 700;
+  background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #F06292 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientAnimation 3s linear infinite;
+  animation-delay: .7s;
+}
+
+
+/* -------------------Gradient Animation  Styling-------------- */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 200% 50%;
+
+  }
+
+  100% {
+    background-position: 0% 50%;
+
+  }
+}
+
+/* -------------------Gradient Animation  Styling end -------------- */
+
+/* ------------------- Animation  Styling Image  -------------- */
+/* image animations start  */
+.animate-on-scrolll {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+.animate-on-scrolll.show {
+  animation: slideTop 1s ease forwards;
+}
+
+@keyframes slideTop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* image animations end  */
+
+/* ------------------- Animation  Styling Heading  -------------- */
+
+/* Animation for heading start */
+.animate-heading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-heading.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for heading end  */

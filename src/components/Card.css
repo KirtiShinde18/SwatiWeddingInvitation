@@ -1,0 +1,8 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);  /* transparent background */
+  backdrop-filter: blur(1px);           /* only background blur */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: black;                            /* text remains sharp */
+}
