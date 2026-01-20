@@ -111,7 +111,7 @@ const App = () => {
   return (
     <>
 
-    {/* <Notification/> */}
+    <Notification/>
     {/* Background music  */}
     <audio ref={audioRef} src={BgMusic} loop  playsInline preload='auto'/>
 
