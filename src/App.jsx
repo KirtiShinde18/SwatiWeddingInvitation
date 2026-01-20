@@ -21,38 +21,47 @@ import Thank from './pages/Thank'
 
 const App = () => {
 
+// Music start 
   const audioRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
 
-    // Attempt to play audio on mount
+    // Function to play audio safely
     const playAudio = async () => {
+      if (!audio) return;
       try {
         await audio.play();
+        console.log("Audio playing");
       } catch (err) {
-        // Autoplay might be blocked on mobile
-        console.log("Autoplay prevented, waiting for user interaction");
+        console.log("Autoplay blocked:", err);
       }
     };
 
+    // Try to autoplay on mount (may fail on mobile)
     playAudio();
 
-    // Resume on any user interaction
+    // Resume audio on user interaction (tap or scroll)
     const resumeAudio = () => {
       if (audio.paused) {
-        audio.play().catch(() => {});
+        audio.play().catch(() => {
+          console.log("User interaction required to resume audio");
+        });
       }
     };
 
-    window.addEventListener("touchstart", resumeAudio);
-    window.addEventListener("scroll", resumeAudio);
+    // Listen for touch, click, scroll events
+    window.addEventListener("touchstart", resumeAudio, { passive: true });
+    window.addEventListener("scroll", resumeAudio, { passive: true });
+    window.addEventListener("click", resumeAudio);
 
     return () => {
       window.removeEventListener("touchstart", resumeAudio);
       window.removeEventListener("scroll", resumeAudio);
+      window.removeEventListener("click", resumeAudio);
     };
   }, []);
+// Music end
 
 
 
@@ -104,7 +113,7 @@ const App = () => {
 
     {/* <Notification/> */}
     {/* Background music  */}
-    <audio ref={audioRef} src={BgMusic} autoPlay loop muted playsInline/>
+    <audio ref={audioRef} src={BgMusic} loop  playsInline preload='auto'/>
 
 
 
