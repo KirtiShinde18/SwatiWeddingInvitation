@@ -113,7 +113,7 @@ useEffect(() => {
   return (
     <>
 
-    <Notification/>
+    {/* <Notification/> */}
     {/* Background music  */}
     <audio ref={audioRef} src={BgMusic} autoPlay loop muted playsInline/>
 
