@@ -33,9 +33,9 @@ const Thank = () => {
         // image Animation end 
   return <>
    <Card>
-    <div className="row text-center pb-5">
+    <div className="row text-center mt-7">
      
-        <div className="col-sm-6 pt-5 ">
+        <div className="col-sm-6  ">
             <img src={things} alt="" width={100} ref={el => imageRefs.current.push(el)} className='animate-on-scrolll'/>
             <div className='d-flex justify-content-center gap-2'>
                 <div className=''>
@@ -54,7 +54,7 @@ const Thank = () => {
                 यांच्या शुभविवाह प्रसंगी आपण सहकुटुंब, सहपरिवार उपस्थित राहून वधु-वरास शुभ आशीर्वाद द्यावेत ही नम्र विनंती.
             </p>
             <h2>✨ निमंत्रक..</h2>
-            <h6>समस्त क्षीरसागर आणि शिंदे परिवार</h6>
+            <h6>समस्त शिंदे परिवार आणि क्षीरसागर  </h6>
             <h6>|| शुभकार्यास आपली उपस्थीती प्रार्थनीय || ⏳</h6>
 
             

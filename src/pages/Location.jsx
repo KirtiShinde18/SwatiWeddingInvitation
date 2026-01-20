@@ -31,9 +31,9 @@ const Location = () => {
         // image Animation end 
   return <>
    <Card>
-    <div className="row text-center pb-5">
+    <div className="row text-center mt-7">
      
-        <div className="col-sm-6 pt-5 ">
+        <div className="col-sm-6 ">
             <h1 className='animate-heading'>|| विवाहस्थळ || 
                 <img src={things} alt="" width={100} ref={el => imageRefs.current.push(el)} className='animate-on-scrolll'/>
             </h1>

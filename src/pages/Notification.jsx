@@ -35,16 +35,16 @@ const Notification = () => {
       {/* Notification start */}
 
       <div 
-      className='icon rounded bg-danger position-fixed top-0 start-0 m-4  d-flex justify-content-center align-items-center gap-2 '
-      style={{backgroundColor: "#DCCCEC", width: "50px", height:"50px", cursor: "pointer"}}
+      className='heart rounded text-white  bg-danger position-fixed top-0 start-0 m-3  d-flex justify-content-center align-items-center gap-2 '
+      style={{backgroundColor: "#DCCCEC", cursor: "pointer", }}
+      // className='heart'
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
       >
-        <i class="bi bi-music-note-beamed" style={{fontSize: "27px", color: "white"}} ></i>
-        {/* <i class="bi bi-geo-alt-fill" style={{fontSize: "20px", color: "white"}} ></i> */}
-      </div>
+  
+        <h5 className='text-white ms-2 p-2'> क्लिक करा <i class="bi bi-music-note-beamed" style={{fontSize: "25px", color: "white"}} ></i></h5>
 
-      
+      </div>
 
     
     {/* Notification Modal */}

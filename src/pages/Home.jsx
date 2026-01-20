@@ -61,7 +61,7 @@ const Home = () => {
     {/* <Notification/> */}
         <Card>
             <div className="row text-center ">
-                <div className="col-sm-6 text-center">
+                <div className="col-sm-6 text-center mt-7">
                     <div className=''>
                         <h2 className='fw-bold animate-heading '>सप्रेम नमस्कार , </h2>
                         <p className='fw-semibold fs-5'>आपणास आग्रहाचे निमंत्रण !</p>
@@ -85,7 +85,7 @@ const Home = () => {
                 </div>
 
                 <div className="col-sm-6 ">
-                    <img src={Wedding1} alt="" width={270} ref={el => imageRefs.current.push(el)} className='animate-on-scrolll'/>
+                    <img src={Wedding1} alt="" width={300} ref={el => imageRefs.current.push(el)} className='animate-on-scrolll'/>
                 </div>
 
 

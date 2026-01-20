@@ -133,3 +133,10 @@ h1 {
 }
 
 /* Animation for heading end  */
+
+.mt-6 {
+  margin-top: 6rem;   /* हवं तसं value बदल */
+}
+.mt-7 {
+  margin-top: 9rem;
+}

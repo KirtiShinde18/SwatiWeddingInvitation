@@ -37,7 +37,7 @@ const Haldi = () => {
         <div className="col-sm-6">
             
         </div>
-        <div className="col-sm-6 py-5">
+        <div className="col-sm-6 mt-7">
             <h1 className='animate-heading'> || हळदी समारंभ || </h1>
             <p>गुरुवारी दि. १९/०२/२०२६ रोजी <br />रात्री ०८:०० वा. <br /> (विवाहस्थळी) </p>
         </div>

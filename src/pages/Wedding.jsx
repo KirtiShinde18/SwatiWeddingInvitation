@@ -34,9 +34,9 @@ const Wedding = () => {
 
   return <>
   <Card>
-    <div className="row text-center pb-5">
+    <div className="row text-center mt-7">
      
-        <div className="col-sm-6 pt-5 ">
+        <div className="col-sm-6 ">
             <h1 className='animate-heading'>|| विवाह मुहूर्त ||</h1>
             <p> शुक्रवार दि. २०/०२/२०२६ रोजी <br /> दुपारी १२:३० वा.  </p>
         </div>
