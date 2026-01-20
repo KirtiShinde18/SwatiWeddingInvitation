@@ -81,7 +81,7 @@ const Notification = () => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-danger" data-bs-dismiss="modal">
-                  Close
+                  बंद करा
                 </button>
                 <button type="button" className="btn btn-info" data-bs-dismiss="modal">
                   {/* See You There ✨ */}
