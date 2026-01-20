@@ -22,48 +22,37 @@ import Thank from './pages/Thank'
 const App = () => {
 
   const audioRef = useRef(null);
-const [unlocked, setUnlocked] = useState(false);
 
-useEffect(() => {
-  const unlockAudio = async () => {
-    if (unlocked) return;
-
+  useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
 
-    try {
-      audio.muted = false;
-      audio.volume = 0.01; // ❗ iOS-safe (not 0)
-      await audio.play();
+    // Attempt to play audio on mount
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (err) {
+        // Autoplay might be blocked on mobile
+        console.log("Autoplay prevented, waiting for user interaction");
+      }
+    };
 
-      // Smooth fade-in
-      let vol = 0.01;
-      const fade = setInterval(() => {
-        vol += 0.05;
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        audio.volume = vol;
-      }, 120);
+    playAudio();
 
-      setUnlocked(true);
-      removeListeners();
-    } catch (err) {
-      console.log("Audio play blocked:", err);
-    }
-  };
+    // Resume on any user interaction
+    const resumeAudio = () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    };
 
-  const removeListeners = () => {
-    document.removeEventListener("click", unlockAudio);
-    document.removeEventListener("touchstart", unlockAudio);
-  };
+    window.addEventListener("touchstart", resumeAudio);
+    window.addEventListener("scroll", resumeAudio);
 
-  document.addEventListener("click", unlockAudio, { once: true });
-  document.addEventListener("touchstart", unlockAudio, { once: true });
-
-  return () => removeListeners();
-}, [unlocked]);
+    return () => {
+      window.removeEventListener("touchstart", resumeAudio);
+      window.removeEventListener("scroll", resumeAudio);
+    };
+  }, []);
 
 
 
