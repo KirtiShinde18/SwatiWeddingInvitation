@@ -22,44 +22,49 @@ import Thank from './pages/Thank'
 const App = () => {
 
   const audioRef = useRef(null);
-    const [unlocked, setUnlocked] = useState(false);
-  
-    useEffect(() => {
-      const unlockAudio = () => {
-        if (unlocked) return;
-  
-        const audio = audioRef.current;
-        audio.muted = false;
-        audio.volume = 0;
-        audio.play();
-  
-        // smooth fade-in
-        let vol = 0;
-        const fade = setInterval(() => {
-          vol += 0.05;
-          if (vol >= 1) {
-            vol = 1;
-            clearInterval(fade);
-          }
-          audio.volume = vol;
-        }, 120);
-  
-        setUnlocked(true);
-        removeListeners();
-      };
-  
-      const removeListeners = () => {
-        document.removeEventListener("click", unlockAudio);
-        document.removeEventListener("scroll", unlockAudio);
-        document.removeEventListener("touchstart", unlockAudio);
-      };
-  
-      document.addEventListener("click", unlockAudio);
-      document.addEventListener("scroll", unlockAudio);
-      document.addEventListener("touchstart", unlockAudio);
-  
-      return () => removeListeners();
-    }, [unlocked]);
+const [unlocked, setUnlocked] = useState(false);
+
+useEffect(() => {
+  const unlockAudio = async () => {
+    if (unlocked) return;
+
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      audio.muted = false;
+      audio.volume = 0.01; // ❗ iOS-safe (not 0)
+      await audio.play();
+
+      // Smooth fade-in
+      let vol = 0.01;
+      const fade = setInterval(() => {
+        vol += 0.05;
+        if (vol >= 1) {
+          vol = 1;
+          clearInterval(fade);
+        }
+        audio.volume = vol;
+      }, 120);
+
+      setUnlocked(true);
+      removeListeners();
+    } catch (err) {
+      console.log("Audio play blocked:", err);
+    }
+  };
+
+  const removeListeners = () => {
+    document.removeEventListener("click", unlockAudio);
+    document.removeEventListener("touchstart", unlockAudio);
+  };
+
+  document.addEventListener("click", unlockAudio, { once: true });
+  document.addEventListener("touchstart", unlockAudio, { once: true });
+
+  return () => removeListeners();
+}, [unlocked]);
+
 
 
 //       // ✅ Smooth Infinite Auto-Scroll
@@ -111,6 +116,8 @@ const App = () => {
     <Notification/>
     {/* Background music  */}
     <audio ref={audioRef} src={BgMusic} autoPlay loop muted playsInline/>
+
+
 
 
       {/* First Section */}
